@@ -20,7 +20,7 @@ const client = new MongoClient(uri, {
 
 async function run() {
   try {
-    await client.connect();
+    // await client.connect();
 
     const recipesCollection = client.db('recipeDB').collection('recipes');
 
@@ -94,8 +94,7 @@ async function run() {
       res.send(result);
     });
 
-    await client.db('admin').command({ ping: 1 });
-    console.log('✅ Connected to MongoDB!');
+ 
   } finally {
     
   }
@@ -111,4 +110,5 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
   console.log(`🚀 Server running on port ${port}`);
 });
+
 
